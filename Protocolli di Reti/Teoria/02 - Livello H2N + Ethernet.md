@@ -44,7 +44,7 @@ Il protocollo H2N è implementato all'interno di una scheda adattatrice che tutt
 È costituito da una RAM, un **Digital Signal Processor** o DSP, un'interfaccia bus/host ed un interfaccia di collegamento alla rete. È un **entità semi-autonoma** rispetto al dispositivo in cui risiede.
 
 **Ethernet**
-In origine Ethernet è stato pensato come topologia a **bus** e che fosse in grado di supportare 1-10Mbps. Al giorno d'oggi è utilizzato in topologie a **stella** ed è in grado di supportare GB/s.
+In origine Ethernet è stato pensato come topologia a **bus** e che fosse in grado di supportare 1-10Mbps. Al giorno d'oggi è utilizzato in topologie a **stella** ed è in grado di supportare GB/s. È utilizzato per creare reti locali.
 - **Bus**: Un bus è un collegamento fisico dove tutti i nodi che partecipano alla rete sono collegati.
 
 **Successo di Ethernet**
@@ -77,7 +77,7 @@ I primi 3 byte rappresentano il produttore dell'interfaccia di rete. Gli amminis
 2) Se l'indirizzo MAC immesso nel frame coincide con l'indirizzo MAC contenuto nella NIC dell'host destinatario allora viene accettato e lo passa **all'SO** dell'host che gestisce gli altri livelli dello stack TCP/IP.
 3) Se l'indirizzo MAC immesso nel frame **NON** coincide con l'indirizzo MAC contenuto nella NIC dell'host destinatario allora viene scartato senza coinvolgere l'SO.
 
-**Non Basta l'Indirizzo IP**
+**IP Non Sufficienti**
 Se i NIC usassero indirizzi IP al posto di indirizzi MAC **indipendenti**:
 1) Avrebbero un supporto limitato di altri protocolli; supporterebbero solo quello IP.
 2) Gli indirizzi IP dovrebbero essere **registrati** nella memoria del NIC, quindi **riconfigurati** ogni volta che l'host cambia rete.
@@ -96,7 +96,7 @@ I pacchetti scambiati a livello H2N vengono chiamati **frame**. Tutte le tecnolo
 6) CRC - 4 bytes.
 
 **Preambolo**
-Possiamo vedere il campo del preambolo come composto da due parti:
+Non viene gestito dall'SO. È composto da due parti:
 1) I primi 7 byte hanno valore `10101010` e servono per far comunicare correttamente le interfacce dei riceventi a livello fisico e **sincronizzare** i cicli di clock con quelli del mittente.
 2) L'ultimo byte ha valore `10101011` e serve per **avvisare** al NIC del ricevente che la fase di sincronizzazione è terminata e che sta arrivando il vero contenuto del frame.
 
